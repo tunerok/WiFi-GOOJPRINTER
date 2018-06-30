@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Text Box using textarea</title>
+        <script>
+
+        strText = "";
+        
+        function SendText()
+        {
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            
+            strText = "&txt=" + document.getElementById("txt_form").form_text.value + "&end=end";
+            
+            request.open("GET", "ajax_inputs" + strText + nocache, true);
+            request.send(null);
+        }
+        </script>
+    </head>
+
+    <body onload="GetArduinoIO()">
+        <form id="txt_form" name="frmText">
+            <textarea name="form_text" rows="10" cols="40"></textarea>
+        </form>
+        <input type="submit" value="Send Text" onclick="SendText()" />
+    </body>
+
+</html>
